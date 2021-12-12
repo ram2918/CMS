@@ -1,0 +1,17 @@
+:host ::ng-deep .block-ui-wrapper {
+    background: rgba(255, 249, 249, 0.5) !important;
+  }
+  .card {
+    margin-bottom: 10px !important;
+  }  
+
+  .dashboard-card {
+    max-width: 100% ;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+
+  .cardMargin {
+    padding: 20px 0 14px; margin: 0 13px;
+  }

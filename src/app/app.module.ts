@@ -11,6 +11,9 @@ import { ItemsComponent } from './items/items.component';
 import { DeliveryChallansComponent } from './delivery-challans/delivery-challans.component';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { ReportsComponent } from './reports/reports.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,13 +22,18 @@ import { ReportsComponent } from './reports/reports.component';
     ItemsComponent,
     DeliveryChallansComponent,
     InvoicesComponent,
-    ReportsComponent
+    ReportsComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    MaterialModule,
+    NgbModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
