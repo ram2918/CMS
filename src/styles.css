@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-html, body { height: 100%; }
+html, body { height: 100%; margin: 0;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
   overflow-y: hidden; /* Hide vertical scrollbar */
   overflow-x: hidden; /* Hide horizontal scrollbar */
@@ -34,7 +34,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
   .fill-remaining-space {
     flex: 1 1 auto;
   }
-
+  elementor-container elementor-column-gap-no {
+    display: none;
+}
 
    .container-fluid {
     display: flex;
