@@ -7,9 +7,9 @@
             <div class="row top-level">
                 <div class="col-xl-3 col-lg-6 col-12">
                     <mat-card class="dashboard-card">                              
-                        <mat-card-title>Current Cost</mat-card-title>
+                        <mat-card-title>Total Contacts</mat-card-title>
                         <mat-card-content>
-                          <p>&#x20b9; 50.00</p>
+                          <p>100 Customers</p>
                             
                         </mat-card-content>
                         <mat-divider inset></mat-divider>
@@ -22,9 +22,9 @@
                   
                   <div class="col-xl-3 col-lg-6 col-12">
                     <mat-card class="dashboard-card">                              
-                        <mat-card-title>Current Cost</mat-card-title>
+                        <mat-card-title>Total Revenue</mat-card-title>
                         <mat-card-content>
-                          <p>&#x20b9; 50.00</p>
+                          <p>&#x20b9; 140,000</p>
                             
                         </mat-card-content>
                         <mat-divider inset></mat-divider>
@@ -37,9 +37,9 @@
                   
                   <div class="col-xl-3 col-lg-6 col-12">
                     <mat-card class="dashboard-card">                              
-                        <mat-card-title>Current Cost</mat-card-title>
+                        <mat-card-title>Current Month</mat-card-title>
                         <mat-card-content>
-                          <p>&#x20b9; 50.00</p>
+                          <p>&#x20b9; 80,000</p>
                             
                         </mat-card-content>
                         <mat-divider inset></mat-divider>
@@ -52,9 +52,9 @@
                   
                   <div class="col-xl-3 col-lg-6 col-12">
                     <mat-card class="dashboard-card">                              
-                        <mat-card-title>Current Cost</mat-card-title>
+                        <mat-card-title>Total Products</mat-card-title>
                         <mat-card-content>
-                          <p>&#x20b9; 50.00</p>
+                          <p>5</p>
                             
                         </mat-card-content>
                         <mat-divider inset></mat-divider>
@@ -65,19 +65,71 @@
                       </mat-card>                      
                   </div>                  
             </div>      
-            </div>
+          </div>
             <div class="row">
+              <hr class="m-0" />
+               
                 <div class="col-12 mt-1">
                   <h5 class="bold">Sales ,Recepits & Expenses</h5>
                 </div>
                 <hr class="m-0" />
                
-               
-              </div>
+                <ngx-charts-bar-vertical 
+                    [view]="[1000,400]"
+                    [results]="saleData"
+                    [xAxisLabel]="'Products'"
+                    [legendTitle]="'Product Sale Chart'"
+                    [yAxisLabel]="'Sale'"
+                    [legend]="true"
+                    [showXAxisLabel]="true"
+                    [showYAxisLabel]="true"
+                    [xAxis]="true"
+                    [yAxis]="true"
+                    [gradient]="true">
+</ngx-charts-bar-vertical>
+             </div>
 
-               <!-- Products sell and New Orders -->
-  
-      <!--/ Products sell and New Orders -->
+             <div class="card">
+              <div class="container-fluid p-1">
+                <h5>
+                  <strong>Recent Contacts </strong>
+                </h5>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-stripped">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Company Name</th>
+                      <th>Email</th>
+                      <th>Work Phone</th>
+                      <th>Receivables</th>
+                      <th>Credits</th>
+                      <th>Category</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>01</td>
+                      <td>12 July 2021, 12.00PM</td>
+                      <td>Ragavendra</td>
+                      <td>
+                        Lorem Ipsum Lorem Ipsum is simply dummy text of the
+                        printing and typesetting
+                      </td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+
+            
+         
+              
              
 
     </div>

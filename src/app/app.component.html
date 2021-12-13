@@ -2,7 +2,7 @@
   <mat-toolbar-row>
     <a class="product-logo" href="#">CMS</a>
     <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="toggleNav(sidenav)">
-      <mat-icon aria-label="Side nav toggle icon" style="padding: 15px;">menu</mat-icon>
+      <mat-icon aria-label="Side nav toggle icon" style="padding: 7px;">menu</mat-icon>
     </button>
     <span class="fill-remaining-space"></span>
 
@@ -12,16 +12,16 @@
   <mat-sidenav #sidenav mode="side" opened class="vertical-menu" >    
     <mat-nav-list style="width:200px">
       <a mat-list-item routerLink="dashboard" skipLocationChange="true">
-        <i class="fa fa-file"></i>&nbsp;<label>Dashboard</label>
+        <i class="fa fa-dashcube"></i>&nbsp;<label>Dashboard</label>
       </a>    
       <a mat-list-item  routerLink="Customers" skipLocationChange="true">
-        <i class="fa fa-file"></i>&nbsp;<label>Customers</label>
+        <i class="fa fa-user"></i>&nbsp;<label>Customers</label>
       </a>
       <a mat-list-item routerLink="items" skipLocationChange="true">
-        <i class="fa fa-file"></i>&nbsp;<label>Items</label>
+        <i class="fa fa-product-hunt"></i>&nbsp;<label>Products</label>
       </a>
       <a mat-list-item routerLink="deliverychallans" skipLocationChange="true">
-        <i class="fa fa-file"></i>&nbsp;<label>Delivery Challans</label>
+        <i class="fa fa-archive"></i>&nbsp;<label>Delivery Challans</label>
       </a>
       
       <a mat-list-item routerLink="invoices" skipLocationChange="true">
@@ -29,7 +29,7 @@
       </a>
       
       <a mat-list-item routerLink="reports" skipLocationChange="true">
-        <i class="fa fa-file"></i>&nbsp;<label>Reports</label>
+        <i class="fa fa-clipboard"></i>&nbsp;<label>Reports</label>
       </a>
     </mat-nav-list>
   </mat-sidenav>

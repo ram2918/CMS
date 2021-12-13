@@ -15,3 +15,8 @@
   .cardMargin {
     padding: 20px 0 14px; margin: 0 13px;
   }
+
+  .bold {
+    font-weight: bold;
+    font-size: 18px;
+  }
