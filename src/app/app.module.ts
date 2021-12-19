@@ -14,31 +14,47 @@ import { InvoicesComponent } from './invoices/invoices.component';
 import { ReportsComponent } from './reports/reports.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
+import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
+import { DeleteCustomerComponent } from './customers/delete-customer/delete-customer.component';
+
+import {DecimalPipe} from '@angular/common';
+import { SearchFilterPipe } from './custom.filter';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbdSortableHeader } from './customers/sortable.directive';
+import { ArchwizardModule } from 'angular-archwizard';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SearchFilterPipe,
     DashboardComponent,
     CustomersComponent,
     ItemsComponent,
     DeliveryChallansComponent,
     InvoicesComponent,
     ReportsComponent,
+     NgbdSortableHeader ,
+    AddCustomerComponent,
+    DeleteCustomerComponent,
 
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,  
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    NgbModule,
     MaterialModule,
-    MaterialModule,
+    ArchwizardModule,
+  
     NgbModule,
   //  NgChartsModule
   NgxChartsModule
 
   ],
-  providers: [],
+  providers: [DecimalPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

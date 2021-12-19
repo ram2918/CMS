@@ -6,6 +6,7 @@ export interface PeriodicElement {
   weight: Number;
   symbol: Number;
 }
+ 
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: "Today", name: 1.0079, weight: 1.0079, symbol: 1.0079},
   {position: "This Week", name: 4.0026, weight: 4.0026, symbol: 4.0026},

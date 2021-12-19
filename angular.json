@@ -27,6 +27,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.css",
               "src/custom-theme.scss",
+              "node_modules/angular-archwizard/styles/archwizard.css",
               "src/styles.css"
             ],
             "scripts": [

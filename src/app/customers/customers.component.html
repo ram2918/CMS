@@ -1,1 +1,66 @@
-<p>customers works!</p>
+
+
+<div class="row">
+  <div class="col-xl-2 offset-10 col-md-6 mb-1 button-wrapper">
+    <div class="dwnd-btn">
+      <button class="btn btn-primary" [routerLink]="['/addcustomer']">
+        <i class="fa fa-user-plus"></i> Add Contact
+      </button>
+    </div>
+  </div>
+</div>
+<form>
+  <!-- [(ngModel)]="service.searchTerm" -->
+  <div class="search-hero">
+    <input class="form-control"
+    
+    type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col" sortable="contactname" (sort)="onSort($event)">Name</th>
+      <th scope="col" sortable="companyName" (sort)="onSort($event)">Company Name</th>
+      <th scope="col" sortable="email" (sort)="onSort($event)">Email </th>
+      <th scope="col" sortable="workphone" (sort)="onSort($event)">Work Phone </th>
+      <th scope="col" sortable="receivables" (sort)="onSort($event)">Receivables </th>
+      <th scope="col" sortable="creduts" (sort)="onSort($event)">Credits </th>
+      
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of customers$ | async">
+      <th scope="row">{{ data.contact_id }}</th>
+      <td>
+       <ngb-highlight [result]="data.contact_name" [term]="service.searchTerm"></ngb-highlight>
+      </td>
+      <td><ngb-highlight [result]="data.company_name" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="data.email" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="data.phone" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="data.unused_credits_receivable_amount" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="data.outstanding_receivable_amount" [term]="service.searchTerm"></ngb-highlight></td>
+     
+
+      
+    </tr>
+    </tbody>
+  </table>
+
+
+
+</form>
+<div class="d-flex justify-content-between p-2">
+  <ngb-pagination
+    [collectionSize]="(total$ | async)!" [(page)]="service.page"
+    >
+    <!-- [pageSize]="service.pageSize" -->
+  </ngb-pagination>
+  <!-- [(ngModel)]="service.pageSize" -->
+  <select class="custom-select" style="width: auto" name="pageSize" >
+    <option [value]="2">2 items per page</option>
+    <option [value]="4">4 items per page</option>
+    <option [value]="6">6 items per page</option>
+  </select>
+</div>
