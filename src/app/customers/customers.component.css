@@ -16,3 +16,8 @@
   .form-control::placeholder  {
     font-family: FontAwesome;
   }
+
+  .trash-modal img {
+    width: 150px;
+    margin: 0 auto;
+  }

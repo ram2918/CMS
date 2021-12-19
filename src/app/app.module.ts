@@ -16,7 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
 import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
 import { DeleteCustomerComponent } from './customers/delete-customer/delete-customer.component';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {DecimalPipe} from '@angular/common';
 import { SearchFilterPipe } from './custom.filter';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +30,7 @@ import { ArchwizardModule } from 'angular-archwizard';
     DashboardComponent,
     CustomersComponent,
     ItemsComponent,
+    
     DeliveryChallansComponent,
     InvoicesComponent,
     ReportsComponent,
@@ -41,7 +42,7 @@ import { ArchwizardModule } from 'angular-archwizard';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule,Ng2SearchPipeModule,
     FormsModule,  
     BrowserAnimationsModule,
     ReactiveFormsModule,

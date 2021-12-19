@@ -4,8 +4,10 @@
 
 html, body { height: 100%; margin: 0;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-  overflow-y: hidden; /* Hide vertical scrollbar */
-  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-y: hidden !important; /* Hide vertical scrollbar */
+  overflow-x: hidden !important; /* Hide horizontal scrollbar */
+  margin-bottom: 0; /* removes default <p> tag margin from the bottom */
+  position: relative;
 }
 
 .product-logo {
@@ -19,7 +21,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     text-decoration: none;
 }
 
-.top-menu {
+/* .top-menu {
     background-color: #abe9cd;
     background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
     color: white;
@@ -29,15 +31,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: #b8c6db;
     background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
     /* background-color: #63a4ff;
-    background-image: linear-gradient(315deg,  #83eaf1 0%, #63a4ff 74%); */
-  }
+    background-image: linear-gradient(315deg,  #83eaf1 0%, #63a4ff 74%);
+  } */
 
-  .fill-remaining-space {
-    flex: 1 1 auto;
-  }
-  elementor-container elementor-column-gap-no {
-    display: none;
-}
+ 
 
    .container-fluid {
     display: flex;
@@ -45,3 +42,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     align-items: center;
     justify-content: space-between;
   }
+  .footer p {  /* Selects text inside a <p> tag that is inside a .footer <div> */
+    margin-bottom: 0; /* removes default <p> tag margin from the bottom */
+ }

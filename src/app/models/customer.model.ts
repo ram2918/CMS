@@ -18,3 +18,8 @@ export interface Customer {
     created_time:string;
     last_modified_time:string;
 }
+
+export class DeleteCustomer {
+    contact_id: number;
+    index: number;
+  }

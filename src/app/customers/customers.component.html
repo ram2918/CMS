@@ -1,5 +1,10 @@
-
-
+<div class="app-content content" style="padding: 20px 0 14px; margin: 0 13px;">
+  <div class="content-wrapper p-1">
+<div class="content-header row">
+  <div class="col-12" style="font-size: 18px;padding: 20px 0 14px; margin: 0 13px;" >Contact Mangement  </div>
+</div>
+  </div>
+</div>
 <div class="row">
   <div class="col-xl-2 offset-10 col-md-6 mb-1 button-wrapper">
     <div class="dwnd-btn">
@@ -14,7 +19,8 @@
   <div class="search-hero">
     <input class="form-control"
     
-    type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+    type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+     placeholder="&#61442;  Start searching for a Customer by id or name or email">
   </div>
 
   <table class="table table-striped">
@@ -27,11 +33,11 @@
       <th scope="col" sortable="workphone" (sort)="onSort($event)">Work Phone </th>
       <th scope="col" sortable="receivables" (sort)="onSort($event)">Receivables </th>
       <th scope="col" sortable="creduts" (sort)="onSort($event)">Credits </th>
-      
+      <th>Action</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let data of customers$ | async">
+    <tr *ngFor="let data of    dataCustomer  |filter:searchText ">
       <th scope="row">{{ data.contact_id }}</th>
       <td>
        <ngb-highlight [result]="data.contact_name" [term]="service.searchTerm"></ngb-highlight>
@@ -41,7 +47,17 @@
       <td><ngb-highlight [result]="data.phone" [term]="service.searchTerm"></ngb-highlight></td>
       <td><ngb-highlight [result]="data.unused_credits_receivable_amount" [term]="service.searchTerm"></ngb-highlight></td>
       <td><ngb-highlight [result]="data.outstanding_receivable_amount" [term]="service.searchTerm"></ngb-highlight></td>
-     
+   
+    <button
+      class="btn btn-sm btn-danger"
+      placement="top"
+      ngbTooltip="Delete"
+      (click)="
+        OpenUserDeleteModal(data.contact_id, i)
+      "
+    >
+      <i class="fa fa-trash"></i>
+    </button>
 
       
     </tr>
@@ -58,9 +74,44 @@
     <!-- [pageSize]="service.pageSize" -->
   </ngb-pagination>
   <!-- [(ngModel)]="service.pageSize" -->
-  <select class="custom-select" style="width: auto" name="pageSize" >
-    <option [value]="2">2 items per page</option>
-    <option [value]="4">4 items per page</option>
-    <option [value]="6">6 items per page</option>
-  </select>
+
 </div>
+
+
+<!-- User Delete Modal -->
+<ng-template #deletemodal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="myModalLabel1">User Deletion Confirmation</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center trash-modal">
+    <div class="d-flex">
+      <img src="../../assets//images/trash_img.gif" />
+    </div>
+    <h3>Are you sure want to delete the Customer?</h3>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn grey btn-outline-secondary"
+      (click)="d('Close modal')"
+      ngbAutofocus
+    >
+      Cancel
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      (click)="d('Close modal'); DeleteCustomer()"
+    >
+      Delete
+    </button>
+  </div>
+</ng-template>

@@ -1,9 +1,13 @@
 html,
 body {
+    height: auto;
     font-family: 'Roboto', sans-serif;
     font-size: 100%;
     overflow-x: hidden;
     background: #fff;
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    margin-bottom: 0; /* removes default <p> tag margin from the bottom */
 }
 
 body a,

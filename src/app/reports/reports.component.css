@@ -1,0 +1,35 @@
+.design{
+    line-height: 12px;
+    width: 18px;
+    font-size: 8pt;
+    font-family: tahoma;
+    margin-top: 1px;
+    margin-right: 2px;
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+
+.dwnd-btn{
+    width: 100%;
+    float: right;
+    padding: 1rem;   
+
+
+}
+
+
+.form-control {
+    box-shadow: 0 10px 40px 0 #B0C1D9;
+  }
+  .form-control::placeholder  {
+    font-family: FontAwesome;
+  }
+
+.search-hero {
+    max-width: 500px;
+    padding-bottom: 50px;
+    margin:auto;
+  }
+  

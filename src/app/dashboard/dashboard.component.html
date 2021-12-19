@@ -80,15 +80,16 @@
               </div>
           </div>
 
-            <div class="row">
+            <div class="row" style="width: 100%;">
               <hr class="m-0" />
                
-                <div class="col-12 mt-1">
-                  <h5 class="bold">Sales ,Recepits & Expenses</h5>
+                <div class="col-12" >
+                  <h5 style="font-size: 18px;padding: 20px 0 14px; margin: 0 13px;">Sales,Recepits & Expenses</h5>
                 </div>
                 <hr class="m-0" />
-               
+            <div class="col" style="max-width: 100%;"   >
                 <ngx-charts-bar-vertical 
+            
                     [view]="[1000,400]"
                     [results]="saleData"
                     [xAxisLabel]="'Products'"
@@ -101,6 +102,7 @@
                     [yAxis]="true"
                     [gradient]="true">
 </ngx-charts-bar-vertical>
+</div>
              </div>
 
              <div class="card">
@@ -113,38 +115,31 @@
                 <table class="table table-stripped">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Company Name</th>
+                      <th>id</th>
+                      <th> Name</th>
+                      <th>Company Name	</th>
                       <th>Email</th>
-                      <th>Work Phone</th>
+                      <th>Work Phone	</th>
                       <th>Receivables</th>
                       <th>Credits</th>
-                      <th>Category</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>01</td>
-                      <td>12 July 2021, 12.00PM</td>
-                      <td>Ragavendra</td>
+                      <td>Bowman and Co	</td>
+                      <td>Bowman and Co	</td>
                       <td>
-                        Lorem Ipsum Lorem Ipsum is simply dummy text of the
-                        printing and typesetting
+                        test@zylker.org	
                       </td>
-                      <td>Yes</td>
-                      <td>Yes</td>
-                      <td>Yes</td>
+                      <td>1234</td>
+                      <td>1369.66	</td>
+                      <td>250</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
-
-
-            
-         
-              
-             
 
     </div>
 </div>    

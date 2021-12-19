@@ -1,1 +1,70 @@
-<p>reports works!</p>
+<div class="app-content content" style="padding: 20px 0 14px; margin: 0 13px;">
+    <div class="content-wrapper p-1">
+<div class="content-header row">
+    <div class="col-12" style="font-size: 18px;padding: 20px 0 14px; margin: 0 13px;" >Report Mangement  </div>
+  </div>
+
+    </div>
+    </div>
+  
+  <div class="row">
+    <div class="col-xl-2 offset-10 col-md-6 mb-1 button-wrapper">
+      <div class="dwnd-btn">
+        <button class="btn btn-primary"  (click)="Export()">
+            <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+            Export as Excel
+        </button>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+
+    
+ 
+  <form>
+    <!-- [(ngModel)]="service.searchTerm" -->
+    <div class="search-hero">
+      <input class="form-control"
+      
+      type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+       placeholder="&#61442;  Start searching for a Customer by id or name or email">
+    </div>
+  
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col" sortable="contactname"  >Name</th>
+        <th scope="col" sortable="companyName"  >Company Name</th>
+        <th scope="col" sortable="email"  >Email </th>
+        <th scope="col" sortable="workphone"  >Work Phone </th>
+        <th scope="col" sortable="receivables"  >Receivables </th>
+        <th scope="col" sortable="creduts"  >Credits </th>
+   
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of    dataCustomer  |filter:searchText ">
+        <th scope="row">{{ data.contact_id }}</th>
+        <td>
+         <ngb-highlight [result]="data.contact_name" ></ngb-highlight>
+        </td>
+        <td><ngb-highlight [result]="data.company_name" ></ngb-highlight></td>
+        <td><ngb-highlight [result]="data.email" ></ngb-highlight></td>
+        <td><ngb-highlight [result]="data.phone" ></ngb-highlight></td>
+        <td><ngb-highlight [result]="data.unused_credits_receivable_amount" ></ngb-highlight></td>
+        <td><ngb-highlight [result]="data.outstanding_receivable_amount"></ngb-highlight></td>
+   
+        
+      </tr>
+      </tbody>
+    </table>
+  
+  
+  
+  </form>
+
+  
+  

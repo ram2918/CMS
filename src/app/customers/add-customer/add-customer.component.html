@@ -5,6 +5,23 @@
         <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
             <div class="form-row">
                 <div class="form-group col">
+                    <label>Customer Type
+                    </label>
+                    <select formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                        <option value=""></option>
+                        <option value="Business">Business</option>
+                        <option value="Individual">Individual</option>
+                     
+                    </select>
+                    <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                        <div *ngIf="f.type.errors.required">Customer Type is required</div>
+                    </div>
+                </div>
+               
+                
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
                     <label>Salutation</label>
                     <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
                         <option value=""></option>
@@ -14,14 +31,14 @@
                         <option value="Ms">Ms</option>
                     </select>
                     <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
-                        <div *ngIf="f.title.errors.required">Title is required</div>
+                        <div *ngIf="f.title.errors.required">Salutation is required</div>
                     </div>
                 </div>
                 <div class="form-group col-5">
                     <label>First Name</label>
                     <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                     <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                        <div *ngIf="f.firstName.errors.required">Field is required</div>
                     </div>
                 </div>
                 <div class="form-group col-5">
@@ -36,10 +53,13 @@
             <div class="form-group col-5">
                 <label>Customer Phone
                 </label>
-                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <input type="text" formControlName="Phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Phone.errors }" />
                 <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                    <div *ngIf="f.email.errors.required">Email is required</div>
-                            </div>
+                    <div *ngIf="f.email.errors.required">Phone Number is required</div>
+                    <div *ngIf="f.email.errors.pattern">Invalid Mobile Number</div>
+    
+                </div>
+                    
             </div>
             <div class="form-group col-5">
                 <label>Email</label>
@@ -49,7 +69,7 @@
                     <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
                 </div>
             </div>
-            </div>
+            </div>  
             <div class="form-row">
                 <div class="form-group col">
                     <label>Password</label>
@@ -79,14 +99,14 @@
                             <label>PAN</label>
                             <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                             <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                <div *ngIf="f.firstName.errors.required">Field is required</div>
                             </div>
                         </div>
                         <div class="form-group col">
                             <label>Currency</label>
                             <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                             <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                <div *ngIf="f.firstName.errors.required"> Field is required</div>
                             </div>
                         </div>
                     </div>
@@ -95,20 +115,20 @@
                             <label>Payment Terms</label>
                             <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                             <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                <div *ngIf="f.firstName.errors.required">Field is required</div>
                             </div>
                         </div>
                         <div class="form-group col">
                             <label>Enable Portal?</label>
                             <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                             <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                <div *ngIf="f.firstName.errors.required">Field is required</div>
                             </div>
                         </div>
                     </div>
                   
                         <div class="form-group text-center mt-2">
-                            <button type="button" class="btn btn-warning" awNextStep>Continue</button>
+                            <button type="button" class="btn btn-warning" awNextStep> Next</button>
                         </div>
                         <!--Form row1 End-->
                     </aw-wizard-step>
@@ -122,21 +142,21 @@
                                     </label>
                                     <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                                     <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                        <div *ngIf="f.firstName.errors.required">Field is required</div>
                                     </div>
                                 </div>
                                 <div class="form-group col">
                                     <label>City</label>
                                     <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                                     <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                        <div *ngIf="f.firstName.errors.required">Field is required</div>
                                     </div>
                                 </div>
                             </div>
                        
                             <div class="form-group text-center mt-2">
                                 <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
-                                <button type="button" class="btn btn-warning ml-1" awNextStep>Continue</button>
+                                <button type="button" class="btn btn-warning ml-1" awNextStep> Next</button>
                             </div>
                         <!--Form row2 End-->
                     </aw-wizard-step>
@@ -214,7 +234,7 @@
                           </div>
                         <div class="form-group text-center mt-2">
                             <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
-                            <button type="button" class="btn btn-warning ml-1" awNextStep>Continue</button>
+                            <button type="button" class="btn btn-warning ml-1" awNextStep> Next</button>
                         </div>
                         <!--Form row3 End-->
                     </aw-wizard-step>
