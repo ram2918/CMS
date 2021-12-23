@@ -17,8 +17,24 @@ export interface Customer {
     mobile:string;
     created_time:string;
     last_modified_time:string;
-}
+    salutation:string;
+    remarks:string;
+    pan:string;
+    enablePortal:string;
+    currency:string;
+    paymentTerms:string;
+    address:string;
+    city:string;
+    otherContact:otherContact[];
+    acceptTerms:boolean;
 
+
+}
+export class otherContact {
+    salutation:string;
+    name:string;
+    emailAddress:string;
+}
 export class DeleteCustomer {
     contact_id: number;
     index: number;

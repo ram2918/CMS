@@ -11,10 +11,10 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" opened class="vertical-menu" >    
     <mat-nav-list style="width:200px">
-      <a mat-list-item routerLink="dashboard" skipLocationChange="true">
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active"  >
         <i class="fa fa-dashcube"></i>&nbsp;<label>Dashboard</label>
       </a>    
-      <a mat-list-item  routerLink="customers" skipLocationChange="true">
+      <a mat-list-item  routerLink="/customers" routerLinkActive="active">
         <i class="fa fa-user"></i>&nbsp;<label>Contact Management</label>
       </a>
       <!-- <a mat-list-item routerLink="items" skipLocationChange="true">
@@ -28,7 +28,7 @@
         <i class="fa fa-server"></i>&nbsp;<label>Invoices</label>
       </a>
        -->
-      <a mat-list-item routerLink="reports" skipLocationChange="true">
+      <a mat-list-item routerLink="/reports" routerLinkActive="active">
         <i class="fa fa-clipboard"></i>&nbsp;<label>Reports Management</label>
       </a>
     </mat-nav-list>

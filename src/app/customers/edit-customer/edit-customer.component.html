@@ -1,0 +1,176 @@
+<!-- main app container -->
+
+
+
+<div class="card m-3" *ngIf="viewStudent && viewData">
+  <div class="row">
+    <div class="col-xl-2 button-wrapper offset-10 md-6 mb-1 ">
+    <div class="btn-right">
+  
+      <button class="btn-primary" style="float: right;" (click)="editButton()" >Edit </button>
+
+    </div>
+  </div>
+  </div>
+  <h5 class="card-header">Contact View</h5>
+  
+        <div class="card-body">
+             <section>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col 5">
+                            <label>Customer Type :</label>
+                         
+                           <span class="bold" >
+                           {{ viewData.contact_type}}
+                           </span>
+                        </div>
+                       
+                        <div class="form-group col 5">
+                            <label>Salutation :</label>
+                         
+                           <span class="bold">
+                            {{ viewData.contact_type}}
+                           </span>
+                        </div>
+                        <div class="form-group col 5">
+                            <label>First Name : </label>
+                         
+                           <span class="bold">
+                               {{viewData.first_name}}
+                           </span>
+                        </div>
+                        <div class="form-group col 5">
+                            <label>Last Name :</label>
+                         
+                           <span class="bold">
+                            {{viewData.last_name}}
+                           </span>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col 5">
+                            <label>Customer Phone Number : </label>
+                         
+                           <span class="bold">
+                            {{viewData.phone}}
+                           </span>
+                        </div>
+                       
+                        <div class="form-group col 5">
+                            <label>Email : </label>
+                         
+                           <span class="bold">
+                            {{viewData.email}}
+                           </span>
+                        </div>     
+                        <div class="form-group col 5">
+                            <label>Remarks : </label>
+                         
+                           <span class="bold">
+                            {{viewData.remarks}}
+                           </span>
+                        </div>                        
+                        
+                    </div>
+
+                    <h5 class="card-header">Other Details</h5>   
+                      
+                    <div class="form-group">
+
+                 
+                        
+                            <div class="table-responsive">
+                                <table class="table  ">
+                                    <thead>
+                                      <tr>
+                                        <th>PAN</th>
+                                        <th> Currency</th>
+                                        <th>Payment Terms	</th>
+                                        <th>Enable Portal</th>
+                                     
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>{{viewData.pan}}</td>
+                                        <td>{{viewData.currency_code}}	</td>
+                                        <td>{{viewData.payment_terms}}	</td>
+                                        <td>
+                                          {{viewData.enablePortal}}	
+                                        </td>
+                                     
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                          
+                            </div>
+
+
+                    </div>
+
+                    
+                    <h5 class="card-header">Location Details</h5>   
+                
+                    <div class="form-group">
+
+                      
+                            <div class="table-responsive">
+                                <table class="table  ">
+                                    <thead>
+                                      <tr>
+                                        <th>Address</th>
+                                        <th> City</th>
+                                   
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>{{viewData.address}}</td>
+                                        <td>{{viewData.city}}	</td>
+                                                                       
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                          
+                            </div>
+                     
+
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-12">
+                            <span class="bold">Contact persons</span  >
+                        </div>             
+                            <div class="table-responsive">
+                                <table class="table  ">
+                                    <thead>
+                                      <tr>
+                                        <th>Salutation</th>
+                                        <th> Name</th>
+                                        <th> Email </th>
+                                   
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let data of viewData.otherContact">
+                                        <td>{{data.salutation}}</td>
+                                        <td>{{data.name}}	</td>
+                                        <td>{{data.emailAddress}}	</td>              
+                                      </tr>
+                                     
+                                    </tbody>
+                                  </table>
+                          
+                            </div>
+                      
+
+                    </div>
+                    
+                </form>
+
+            </section>
+</div>
+
+</div>

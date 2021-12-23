@@ -22,6 +22,8 @@ import { SearchFilterPipe } from './custom.filter';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbdSortableHeader } from './customers/sortable.directive';
 import { ArchwizardModule } from 'angular-archwizard';
+import { EditCustomerComponent } from './customers/edit-customer/edit-customer.component';
+import { EditContactComponent } from './customers/edit-contact/edit-contact.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { ArchwizardModule } from 'angular-archwizard';
      NgbdSortableHeader ,
     AddCustomerComponent,
     DeleteCustomerComponent,
+    EditCustomerComponent,
+    EditContactComponent,
 
 
   ],

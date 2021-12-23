@@ -8,6 +8,7 @@ import {CustomerService} from './customers.service';
 import {NgbdSortableHeader, SortEvent} from './sortable.directive';
 import {CUSTOMERLISTS} from './customerList';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
@@ -25,147 +26,16 @@ deleteUser:DeleteCustomer;
   public searchFilter: any = '';
   query:any;
   customers$:any;
-  constructor(public service: CustomerService,private pipe: DecimalPipe, private modalService: NgbModal) {
+
+  constructor(public service: CustomerService,
+    private router:Router,
+    private pipe: DecimalPipe, private modalService: NgbModal) {
     this.customers$ = service.customers$;
     this.total$ = service.total$;
    
    }
-   dataCustomer =[
-    { 
-      "contact_id": 460000000026049,
- "contact_name": "Ram",
- "company_name": "Ram Tech",
- "contact_type": "customer",
- "status": "active",
- "payment_terms": 15,
- "payment_terms_label": "Net 15",
- "currency_id": 460000000000097,
- "currency_code": "USD",
- "outstanding_receivable_amount": 250,
- "unused_credits_receivable_amount": 1369.66,
- "first_name": "Will",
- "last_name": "Smith",
- "email": "test@zylker.org",
- "phone": "1234",
- "mobile": "1234",
- "created_time": "2013-10-07T12:06:10+0530",
- "last_modified_time": "2013-11-08T18:24:51+0530"
-}, { 
- "contact_id": 460000000026049,
-"contact_name": "Bowman and Co",
-"company_name": "Bowman and Co",
-"contact_type": "customer",
-"status": "active",
-"payment_terms": 15,
-"payment_terms_label": "Net 15",
-"currency_id": 460000000000097,
-"currency_code": "USD",
-"outstanding_receivable_amount": 250,
-"unused_credits_receivable_amount": 1369.66,
-"first_name": "Will",
-"last_name": "Smith",
-"email": "test@zylker.org",
-"phone": "1234",
-"mobile": "1234",
-"created_time": "2013-10-07T12:06:10+0530",
-"last_modified_time": "2013-11-08T18:24:51+0530"
-}, { 
- "contact_id": 460000000026049,
-"contact_name": "Bowman and Co",
-"company_name": "Bowman and Co",
-"contact_type": "customer",
-"status": "active",
-"payment_terms": 15,
-"payment_terms_label": "Net 15",
-"currency_id": 460000000000097,
-"currency_code": "USD",
-"outstanding_receivable_amount": 250,
-"unused_credits_receivable_amount": 1369.66,
-"first_name": "Will",
-"last_name": "Smith",
-"email": "test@zylker.org",
-"phone": "1234",
-"mobile": "1234",
-"created_time": "2013-10-07T12:06:10+0530",
-"last_modified_time": "2013-11-08T18:24:51+0530"
-}, { 
- "contact_id": 460000000026049,
-"contact_name": "Bowman and Co",
-"company_name": "Bowman and Co",
-"contact_type": "customer",
-"status": "active",
-"payment_terms": 15,
-"payment_terms_label": "Net 15",
-"currency_id": 460000000000097,
-"currency_code": "USD",
-"outstanding_receivable_amount": 250,
-"unused_credits_receivable_amount": 1369.66,
-"first_name": "Will",
-"last_name": "Smith",
-"email": "test@zylker.org",
-"phone": "1234",
-"mobile": "1234",
-"created_time": "2013-10-07T12:06:10+0530",
-"last_modified_time": "2013-11-08T18:24:51+0530"
-}, {  
- "contact_id": 460000000026049,
-"contact_name": "Bowman and Co",
-"company_name": "Bowman and Co",
-"contact_type": "customer",
-"status": "active",
-"payment_terms": 15,
-"payment_terms_label": "Net 15",
-"currency_id": 460000000000097,
-"currency_code": "USD",
-"outstanding_receivable_amount": 250,
-"unused_credits_receivable_amount": 1369.66,
-"first_name": "Will",
-"last_name": "Smith",
-"email": "test@zylker.org",
-"phone": "1234",
-"mobile": "1234",
-"created_time": "2013-10-07T12:06:10+0530",
-"last_modified_time": "2013-11-08T18:24:51+0530"
-}, { 
- "contact_id": 460000000026049,
-"contact_name": "Bowman and Co",
-"company_name": "Bowman and Co",
-"contact_type": "customer",
-"status": "active",
-"payment_terms": 15,
-"payment_terms_label": "Net 15",
-"currency_id": 460000000000097,
-"currency_code": "USD",
-"outstanding_receivable_amount": 250,
-"unused_credits_receivable_amount": 1369.66,
-"first_name": "Will",
-"last_name": "Smith",
-"email": "test@zylker.org",
-"phone": "1234",
-"mobile": "1234",
-"created_time": "2013-10-07T12:06:10+0530",
-"last_modified_time": "2013-11-08T18:24:51+0530"
-}, { 
- "contact_id": 460000000026049,
-"contact_name": "Bowman and Co",
-"company_name": "Bowman and Co",
-"contact_type": "customer",
-"status": "active",
-"payment_terms": 15,
-"payment_terms_label": "Net 15",
-"currency_id": 460000000000097,
-"currency_code": "USD",
-"outstanding_receivable_amount": 250,
-"unused_credits_receivable_amount": 1369.66,
-"first_name": "Will",
-"last_name": "Smith",
-"email": "test@zylker.org",
-"phone": "1234",
-"mobile": "1234",
-"created_time": "2013-10-07T12:06:10+0530",
-"last_modified_time": "2013-11-08T18:24:51+0530"
-}]
-   dataSource = new MatTableDataSource(  CUSTOMERLISTS  );
+   dataCustomer =CUSTOMERLISTS;
+      dataSource = new MatTableDataSource(  CUSTOMERLISTS  );
 
   ngOnInit(): void {
   
@@ -204,5 +74,12 @@ deleteUser:DeleteCustomer;
   }
   DeleteCustomer(){
     this.dataCustomer.splice(this.deleteUser.index, 1);
+  }
+  openEditViewModel(id){
+    const params ={
+      contactId:id
+    }
+    
+    this.router.navigate(['/editCustomer/'+id],)
   }
 }

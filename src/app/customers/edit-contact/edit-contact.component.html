@@ -1,0 +1,287 @@
+<div class="card m-3" *ngIf ="editCustomer">
+    <div class="row">
+      <div class="col-xl-2 button-wrapper offset-10 md-6 mb-1 ">
+      <div class="btn-right">
+    
+        <button class="btn-primary" style="float: right;" (click)="viewButton()" >View </button>
+  
+      </div>
+    </div>
+    </div> 
+    <h5 class="card-header">Edit  Contact</h5>
+      <div class="card-body">
+          <form [formGroup]="editCustomer" (ngSubmit)="onSubmit()">
+              <div class="form-row">
+                  <div class="form-group col">
+                      <label>Customer Type
+                      </label>
+                      <select formControlName="type" class="form-control"
+                     
+                      [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                      <option value="customer">Customer</option>
+                          <option value="Business">Business</option>
+                          <option value="Individual">Individual</option>
+                       
+                      </select>
+                      <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                          <div *ngIf="f.type.errors.required">Customer Type is required</div>
+                      </div>
+                  </div>
+                 
+                  
+              </div>
+              <div class="form-row">
+                  <div class="form-group col">
+                      <label>Salutation</label>
+                      <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                          <option value=""></option>
+                          <option value="Mr">Mr</option>
+                          <option value="Mrs">Mrs</option>
+                          <option value="Miss">Miss</option>
+                          <option value="Ms">Ms</option>
+                      </select>
+                      <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                          <div *ngIf="f.title.errors.required">Salutation is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group col-5">
+                      <label>First Name</label>
+                      <input type="text" formControlName="firstName"   class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="f.firstName.errors.required">Field is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group col-5">
+                      <label>Last Name</label>
+                      <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-row">
+              <div class="form-group col-5">
+                  <label>Customer Phone
+                  </label>
+                  <input type="text" formControlName="Phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Phone.errors }" />
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">Phone Number is required</div>
+                      <div *ngIf="f.email.errors.pattern">Invalid Mobile Number</div>
+      
+                  </div>
+                      
+              </div>
+              <div class="form-group col-5">
+                  <label>Email</label>
+                  <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">Email is required</div>
+                      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                  </div>
+              </div>
+              </div>  
+              <div class="form-row">
+                  <div class="form-group col">
+                      <label>Password</label>
+                      <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required</div>
+                          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                      </div>
+                  </div>
+                  <div class="form-group col">
+                      <label>Confirm Password</label>
+                      <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                      <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                          <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                          <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                      </div>
+                  </div>
+                
+              </div>
+           
+              <div class="form-group form-check">
+                  <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                  <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                  <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+              </div>
+              <div class="text-center">
+                  <button class="btn btn-primary mr-1">Update</button>
+                  <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+              </div>
+          
+              <div class="form-group">
+                <aw-wizard #wizard [navBarLayout]="'large-empty-symbols'">
+                    <!--Contact Info-->
+                    <aw-wizard-step [stepTitle]="'Other Details'" [navigationSymbol]="{ symbol: '1'}">
+                        <!--Form row1-->
+                      <div class="row">
+                        <div class="form-group col">
+                            <label>PAN</label>
+                            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                <div *ngIf="f.firstName.errors.required">Field is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col">
+                            <label>Currency</label>
+                            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                <div *ngIf="f.firstName.errors.required"> Field is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <label>Payment Terms</label>
+                            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                <div *ngIf="f.firstName.errors.required">Field is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col">
+                            <label>Enable Portal?</label>
+                            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                <div *ngIf="f.firstName.errors.required">Field is required</div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                        <div class="form-group text-center mt-2">
+                            <button type="button" class="btn btn-warning" awNextStep> Next</button>
+                        </div>
+                        <!--Form row1 End-->
+                    </aw-wizard-step>
+
+                   <aw-wizard-step [stepTitle]="'Address'" [navigationSymbol]="{ symbol: '2'}">
+                        <!--Form row2-->           
+                          
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label>Address
+                                    </label>
+                                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.firstName.errors.required">Field is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group col">
+                                    <label>City</label>
+                                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.firstName.errors.required">Field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                       
+                            <div class="form-group text-center mt-2">
+                                <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+                                <button type="button" class="btn btn-warning ml-1" awNextStep> Next</button>
+                            </div>
+                        <!--Form row2 End-->
+                    </aw-wizard-step>
+
+                    <aw-wizard-step [stepTitle]="'Contact Persons'" [navigationSymbol]="{ symbol: '3'}">
+                        <!--Form row3-->
+                    
+                          <div class="col-md-2">
+                            <button
+                              class="btn btn-primary"
+                              type="button"
+                              (click)="AddcontactDetails()"
+                            >
+                              <i class="fa fa-plus-circle"></i>
+                              Add
+                            </button>
+                          </div>
+                          <!-- </div> -->
+                          <div class="col-md-12">
+                            <div class="table-responsive">
+                              <table class="table table-striped">
+                                <thead>
+                                  <th>Salutation</th>
+                                  <th>Name</th>
+                                  <th>Email Address	</th>
+                                  <th>Remove	</th>
+                                </thead>
+                                <tbody>
+                                  <tr
+                                    *ngFor="
+                                      let ach of contactDetails;
+                                      let i = index
+                                    "
+                                  >
+                                    <td class="col-md-3">
+                                     
+                                          
+                                            <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                                                <option value=""></option>
+                                                <option value="Mr">Mr</option>
+                                                <option value="Mrs">Mrs</option>
+                                                <option value="Miss">Miss</option>
+                                                <option value="Ms">Ms</option>
+                                            </select>                                     
+                                       
+                                    </td>
+                                    <td>
+                                      <input
+                                        class="form-control"
+                                     
+                                      />
+                                    </td>
+                                    <td>
+                                        <input
+                                          class="form-control"
+                                       
+                                        />
+                                      </td>
+                                    <td>
+                                      <div style="padding-top: 10px">
+                                        <button
+                                          class="btn btn-sm btn-danger"
+                                          placement="top"
+                                          ngbTooltip="Delete"
+                                          (click)="DeleteContactDetails(i)"
+                                        >
+                                          <i class="fa fa-trash"></i>
+                                        </button>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        <div class="form-group text-center mt-2">
+                            <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+                            <button type="button" class="btn btn-warning ml-1" awNextStep> Next</button>
+                        </div>
+                        <!--Form row3 End-->
+                    </aw-wizard-step>
+
+                    <aw-wizard-step [stepTitle]="'Remarks'" [navigationSymbol]="{ symbol: '4' }">
+                        <!--Form row4-->
+                        <div class="row">
+                          
+                            <div class="form-group col">
+                                <label>A short introduction and service of your company</label>
+                                <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                               
+                            </div>
+                        </div>
+                    
+                        <!--Form row4 End-->
+                        <div class="form-group text-center mt-2">
+                            <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+                            <button type="button" class="btn btn-warning ml-1">Submit</button>
+                        </div>
+                    </aw-wizard-step> 
+
+                </aw-wizard>
+            </div>
+          
+            </form>
+      </div>
+  </div>
+  

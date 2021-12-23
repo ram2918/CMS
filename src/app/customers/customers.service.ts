@@ -29,7 +29,7 @@ function sort(customers: Customer[], column: SortColumn, direction: string): Cus
     return customers;
   } else {
     return [...customers].sort((a, b) => {
-      const res = compare(a[column], b[column]);
+      const res = 0;
       return direction === 'asc' ? res : -res;
     });
   }

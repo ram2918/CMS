@@ -36,12 +36,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 
  
 
-   .container-fluid {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
   .footer p {  /* Selects text inside a <p> tag that is inside a .footer <div> */
     margin-bottom: 0; /* removes default <p> tag margin from the bottom */
  }
