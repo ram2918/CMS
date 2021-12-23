@@ -12,7 +12,7 @@ import { ReportsComponent } from './reports/reports.component';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent },
-  { path: "dashboard", component: DashboardComponent },
+//  { path: "dashboard", component: DashboardComponent },
   { path: "customers", component: CustomersComponent },
   { path: "addcustomer", component: AddCustomerComponent },
   { path: "editCustomer/:contactId", component: EditCustomerComponent },
