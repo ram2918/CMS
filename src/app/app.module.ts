@@ -24,6 +24,7 @@ import { NgbdSortableHeader } from './customers/sortable.directive';
 import { ArchwizardModule } from 'angular-archwizard';
 import { EditCustomerComponent } from './customers/edit-customer/edit-customer.component';
 import { EditContactComponent } from './customers/edit-contact/edit-contact.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { EditContactComponent } from './customers/edit-contact/edit-contact.comp
   NgxChartsModule
 
   ],
-  providers: [DecimalPipe],
+  providers: [DecimalPipe,{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
