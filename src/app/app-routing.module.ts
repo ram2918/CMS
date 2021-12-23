@@ -11,7 +11,7 @@ import { ItemsComponent } from './items/items.component';
 import { ReportsComponent } from './reports/reports.component';
 
 const routes: Routes = [
-  { path: "dashboard", component: DashboardComponent },
+  { path: "", component: DashboardComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "customers", component: CustomersComponent },
   { path: "addcustomer", component: AddCustomerComponent },
